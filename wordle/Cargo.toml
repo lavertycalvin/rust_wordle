@@ -9,5 +9,6 @@ edition = "2021"
 
 [dependencies]
 pancurses = "0.17"
+console_interface = { path = "console_interface" }
 guess = { path = "guess" }
 word_dictionary = { path = "word_dictionary" }

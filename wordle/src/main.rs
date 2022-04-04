@@ -1,32 +1,22 @@
 extern crate pancurses;
-use pancurses::{endwin, initscr, noecho, start_color, use_default_colors};
+use pancurses::{initscr, endwin};
 
 fn main() {
     let mut remaining_guesses = 6;
     let mut has_won = false;
-    let mut word_of_the_day = String::new();
-
-    let window = initscr();
-
-    window.keypad(true);
-    noecho();
-    window.refresh();
-    start_color();
-    use_default_colors();
+    let mut word_of_the_day = "Hello".to_string();
 
 
+    let console = console_interface::ConsoleInterface {window: initscr()};
 
-    word_dictionary::get_todays_word(&mut word_of_the_day);
-
-    window.printw("Type in your guesses below, press Ctrl-C to quit\n");
-    window.printw(format!("Word of the day is: {}\n", word_of_the_day));
-    window.printw(format!("GUESS\n"));
+    //word_dictionary::get_todays_word(&mut word_of_the_day);
 
     let guesser = guess::Guesser {
         wotd: word_of_the_day,
-        output_window: window,
+        ui: console,
     };
-    guesser.make_color_pairs();
+
+    guesser.init_ui();
 
     while !has_won && remaining_guesses > 0 {
         has_won = guesser.run_guessing_process();
