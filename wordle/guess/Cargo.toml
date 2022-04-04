@@ -1,13 +1,9 @@
 [package]
-name = "wordle"
+name = "guess"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[workspace]
-
 [dependencies]
 pancurses = "0.17"
-guess = { path = "guess" }
-word_dictionary = { path = "word_dictionary" }
