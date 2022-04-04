@@ -132,7 +132,7 @@ impl ConsoleInterface {
             match guess_type {
                 GuessType::Correct => self.write_colored_char(c, ColorDefs::CorrectColorPair),
                 GuessType::Incorrect => self.write_colored_char(c, ColorDefs::IncorrectColorPair),
-                GuessType::WrongPlace => self.write_colored_char(c, ColorDefs::WrongPlaceColorPair)
+                GuessType::WrongPlace => self.write_colored_char(c, ColorDefs::WrongPlaceColorPair),
             }
         }
         self.window.addch('\n');

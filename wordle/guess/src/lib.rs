@@ -1,6 +1,5 @@
 use console_interface::{CharPressedType, GuessType};
 
-
 pub struct Guesser {
     pub wotd: String,
     pub ui: console_interface::ConsoleInterface,
@@ -25,7 +24,7 @@ impl Guesser {
                         user_guess_input.push(c);
                         chars_entered += 1;
                     }
-                },
+                }
                 (CharPressedType::Enter, _) => {
                     if chars_entered == 5 {
                         enter_pressed = true;
@@ -38,10 +37,8 @@ impl Guesser {
                         user_guess_input.pop();
                         chars_entered -= 1;
                     }
-                },
-                (_,_) => {
-
                 }
+                (_, _) => {}
             }
         }
         return user_guess_input;
@@ -91,8 +88,6 @@ impl Guesser {
         let is_correct = self.wotd.eq(&user_guess);
 
         self.tell_user_outcome(&user_guess);
-
-        
 
         return is_correct;
     }

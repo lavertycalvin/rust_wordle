@@ -1,13 +1,12 @@
 extern crate pancurses;
-use pancurses::{initscr, endwin};
+use pancurses::{endwin, initscr};
 
 fn main() {
     let mut remaining_guesses = 6;
     let mut has_won = false;
     let mut word_of_the_day = "Hello".to_string();
 
-
-    let console = console_interface::ConsoleInterface {window: initscr()};
+    let console = console_interface::ConsoleInterface { window: initscr() };
 
     //word_dictionary::get_todays_word(&mut word_of_the_day);
 
